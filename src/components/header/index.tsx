@@ -1,2 +1,2 @@
-import HeaderComp  from './HeaderComp';
+import { HeaderComp } from './HeaderComp';
 export default HeaderComp;

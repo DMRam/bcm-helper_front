@@ -3,7 +3,6 @@ import {
   Header,
   HeaderContainer,
   HeaderName,
-  HeaderNavigation,
   HeaderMenuButton,
   HeaderMenuItem,
   HeaderGlobalBar,
@@ -14,22 +13,21 @@ import {
   HeaderSideNavItems,
 } from "@carbon/react";
 import { Switcher, Notification, UserAvatar } from "@carbon/react/icons";
-const TutorialHeader = () => (
+
+export const HeaderComp = () => (
   <HeaderContainer
     render={({ isSideNavExpanded, onClickSideNavExpand }) => (
-      <Header aria-label="Carbon Tutorial">
+      <Header aria-label="Carbon">
         <SkipToContent />
         <HeaderMenuButton
           aria-label="Open menu"
           onClick={onClickSideNavExpand}
           isActive={isSideNavExpanded}
         />
-        <HeaderName href="/" prefix="IBM">
-          Carbon Tutorial
+        <HeaderName href="/" prefix="Helper">
+          Carbon
         </HeaderName>
-        <HeaderNavigation aria-label="Carbon Tutorial">
-          <HeaderMenuItem href="/repos">Repositories</HeaderMenuItem>
-        </HeaderNavigation>
+
         <SideNav
           aria-label="Side navigation"
           expanded={isSideNavExpanded}
@@ -62,5 +60,3 @@ const TutorialHeader = () => (
     )}
   />
 );
-
-export default TutorialHeader;
