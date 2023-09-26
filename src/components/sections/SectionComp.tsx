@@ -1,7 +1,10 @@
-import { Table, TableHead, TableRow, TableHeader, TableBody, TableCell } from '@carbon/react'
 import React from 'react'
+import { Table, TableHead, TableRow, TableHeader, TableBody, TableCell } from '@carbon/react'
+import { useData } from '../hooks/useData'
 
 export const SectionComp = () => {
+
+    const { allUsersCollected } = useData()
     return (
         <div style={{ margin: 20 }}>
             <Table aria-label="sample table">
@@ -11,139 +14,37 @@ export const SectionComp = () => {
                             Name
                         </TableHeader>
                         <TableHeader>
-                            Rule
+                            Last Name
                         </TableHeader>
                         <TableHeader>
-                            Status
+                            City
                         </TableHeader>
                         <TableHeader>
-                            Other
-                        </TableHeader>
-                        <TableHeader>
-                            Example
+                            Email
                         </TableHeader>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    <TableRow>
-                        <TableCell>
-                            Load Balancer 1
-                        </TableCell>
-                        <TableCell>
-                            Round robin
-                        </TableCell>
-                        <TableCell>
-                            Starting
-                        </TableCell>
-                        <TableCell>
-                            Test
-                        </TableCell>
-                        <TableCell>
-                            22
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>
-                            Load Balancer 2
-                        </TableCell>
-                        <TableCell>
-                            DNS delegation
-                        </TableCell>
-                        <TableCell>
-                            Active
-                        </TableCell>
-                        <TableCell>
-                            Test
-                        </TableCell>
-                        <TableCell>
-                            22
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>
-                            Load Balancer 3
-                        </TableCell>
-                        <TableCell>
-                            Round robin
-                        </TableCell>
-                        <TableCell>
-                            Disabled
-                        </TableCell>
-                        <TableCell>
-                            Test
-                        </TableCell>
-                        <TableCell>
-                            22
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>
-                            Load Balancer 4
-                        </TableCell>
-                        <TableCell>
-                            Round robin
-                        </TableCell>
-                        <TableCell>
-                            Disabled
-                        </TableCell>
-                        <TableCell>
-                            Test
-                        </TableCell>
-                        <TableCell>
-                            22
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>
-                            Load Balancer 5
-                        </TableCell>
-                        <TableCell>
-                            Round robin
-                        </TableCell>
-                        <TableCell>
-                            Disabled
-                        </TableCell>
-                        <TableCell>
-                            Test
-                        </TableCell>
-                        <TableCell>
-                            22
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>
-                            Load Balancer 6
-                        </TableCell>
-                        <TableCell>
-                            Round robin
-                        </TableCell>
-                        <TableCell>
-                            Disabled
-                        </TableCell>
-                        <TableCell>
-                            Test
-                        </TableCell>
-                        <TableCell>
-                            22
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>
-                            Load Balancer 7
-                        </TableCell>
-                        <TableCell>
-                            Round robin
-                        </TableCell>
-                        <TableCell>
-                            Disabled
-                        </TableCell>
-                        <TableCell>
-                            Test
-                        </TableCell>
-                        <TableCell>
-                            22
-                        </TableCell>
-                    </TableRow>
+                    {allUsersCollected.map(
+                        (user) =>
+                        (
+                            <TableRow>
+                                <TableCell>
+                                    {user.name}
+                                </TableCell>
+                                <TableCell>
+                                    {user.lastName}
+                                </TableCell>
+                                <TableCell>
+                                    {user.city}
+                                </TableCell>
+                                <TableCell>
+                                    {user.email}
+                                </TableCell>
+                            </TableRow>
+                        )
+                    )
+                    }
                 </TableBody>
             </Table>
         </div>
